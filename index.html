@@ -1,73 +1,338 @@
+
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Metadataen-toaster : " />
+    <meta charset="utf-8">
+    <title>Metadaten-Formular &middot; Moers Open Data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <!-- Le styles -->
+    <link href="components/bootstrap/docs/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="components/bootstrap/docs/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
 
-    <title>Metadataen-toaster</title>
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+    </style>
+    <link href="components/bootstrap/docs/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="components/bootstrap/docs/assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="components/bootstrap/docs/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="components/bootstrap/docs/assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="components/bootstrap/docs/assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="components/bootstrap/docs/assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="components/bootstrap/docs/assets/ico/favicon.png">
   </head>
 
   <body>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/moers/metadataen-toaster">View on GitHub</a>
+    <div class="container-narrow">
 
-          <h1 id="project_title">Metadataen-toaster</h1>
-          <h2 id="project_tagline"></h2>
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#form">Formular</a></li>
+          <li><a href="#json">JSON</a></li>
+        </ul>
+        <h3 class="muted">Metadaten-Toaster</h3>
+      </div>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/moers/metadataen-toaster/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/moers/metadataen-toaster/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
+      <hr>
+
+      <div class="jumbotron">
+        <h1>Super awesome marketing speak!</h1>
+        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <a class="btn btn-large btn-success" href="#">Sign up today</a>
+      </div>
+
+      <hr>
+
+      <div class="row-fluid marketing">
+        <div class="span12" id="form">
+          
+
+        </div>
+      </div>
+      <div class="row-fluid marketing">
+        <div class="span12" id="json">
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="footer">
+        <p>&copy; Moers 2013</p>
+      </div>
+
+    </div> <!-- /container -->
+    
+    
+    <!-- Le Templates 
+    ================================================== -->
+    
+    
+    <script type="text/x-handlebars" data-template-name="metadata-form">
+      <h2>Das ist das Dokument: <i>{{view.data.name}}</i></h2>
+      <form class="form-horizontal">
+        <fieldset>
+        <legend>Stammdaten</legend>
+          <div class="control-group">
+            <label class="control-label">Name</label>
+            <div class="controls">
+              {{view Ember.TextField valueBinding="view.data.name"}}
+              <span class="help-inline">Ein für Menschen lesbarer Bezeichner des Datensatzes, des Dokuments oder der Apps, der für eine Identifizierung genutzt werden kann (einfache ASCII-Präsentation des Titels, auch für die Pretty-Link-URL, Linked Data URIs)</span>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">Titel</label>
+            <div class="controls">
+              {{view Ember.TextField valueBinding="view.data.title"}}
+              <span class="help-inline">Beschreibung und weitere Informationen zum Datensatz, zum Dokument oder zur App, wird auf der Detailseite dargestellt und kann mehrere Absätze umfassen</span>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">Beschreibung</label>
+            <div class="controls">
+            {{view Ember.TextField valueBinding="view.data.notes"}}
+            <span class="help-inline">Beschreibung und weitere Informationen zum Datensatz, zum Dokument oder zur App, wird auf der Detailseite dargestellt und kann mehrere Absätze umfassen.</span>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">Kategorien</label>
+            <div class="controls">
+              {{view Ember.Select
+                     contentBinding="view.groupsContent"
+                     valueBinding="view.data.groups"
+                     multiple="multiple"
+              }}
+              <span class="help-inline">Kategorien für die Datensätze und Dokumente. Die Kategorien sind statisch und werden vom Portalbetreiber langfristig gepflegt, s.u. bzw. <a href='https://github.com/fraunhoferfokus/ogd-metadata/blob/master/kategorien/deutschland.json'>Liste</a></span>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">Schlagwörter</label>
+            <div class="controls">
+              {{#each view.data.tags}}
+                {{view Ember.TextField valueBinding="this"}}
+              {{/each}}
+              <button {{action addTag target="view"}} class="btn btn-small"><i class="icon-plus"></i> Schlagwort hinzufügen</button>
+              <span class="help-inline">Freie Schlüsselwörter des Datensatzes, des Dokuments oder der App</span>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">Website</label>
+            <div class="controls">
+              {{view Ember.TextField valueBinding="view.data.url"}}
+              <span class="help-inline">Die ursprüngliche Webadresse des Datensatzes, Dokuments oder der App, um zu weiteren Informationen über den Datensatz, das Dokument oder die App zu gelangen. Wird auf der Detailseite als Link angezeigt.</span>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">Typ</label>
+            <div class="controls">
+              {{view Ember.Select contentBinding="view.typeContent"
+                     valueBinding="view.data.type"}}
+              <span class="help-inline">Zeigt an, ob ein Datensatz, ein Dokument, eine App beschrieben wird. Entscheidet darüber, in welchem Bereich diese Metadaten angezeigt werden.</span>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">Sektor</label>
+            <div class="controls">
+              {{view Ember.Select contentBinding="view.sectorContent"
+                     valueBinding="view.data.sector"}}
+              <span class="help-inline">Zeigt an, ob eine App oder ein Dokument aus dem öffentlichem, dem privaten oder einem anderen Bereich kommt. Wird in einen Piktogramm auf der Detailseite zum Ausdruck gebracht.</span>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Ressourcen</legend>
+          {{#each resource in view.data.resources}}
+            <div class="control-group">
+              <label class="control-label">URL</label>
+              <div class="controls">
+                {{view Ember.TextField valueBinding="resource.url"}}
+                <span class="help-inline">Verweis auf die eigentliche Datendatei, das Dokument oder die Anwendung.</span>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">Format</label>
+              <div class="controls">
+                {{view Ember.TextField valueBinding="resource.format"}}
+                <span class="help-inline">Typ der Ressource (MIME Types).</span>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">Beschreibung</label>
+              <div class="controls">
+                  {{view Ember.TextArea valueBinding="resource.description"}}
+                <span class="help-inline">Erläuterung, welche Rolle die Ressource für den Datensatz, das Dokument bzw. die App spielt (z. B. ob es sich dabei um eine bestimmte Zeitscheibe oder Schlüsselliste handelt. Der Beschreibungstext, wird mit dem Link zur Ressource unterlegt.)</span>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">Sprache</label>
+              <div class="controls">
+                  {{view Ember.TextField valueBinding="resource.language"}}
+                <span class="help-inline">Sprache als ISO 639-1-Code, in der die Ressource verfasst ist. (meistens <i>de</i>)</span>
+              </div>
+            </div>
+          {{/each}}
+        </fieldset>
+        <fieldset>
+          <legend>Extras</legend>
+          <h4>Kontakte</h4>
+          {{#each contact in view.data.extras.contacts}}
+            <div class="control-group">
+              <label class="control-label">Rolle</label>
+              <div class="controls">
+                {{view Ember.Select contentBinding="view.roleContent"
+                     valueBinding="contact.role"}}
+                <span class="help-inline">Rolle, die dieser Kontakt für das Metadatum innehat. Unter Veröffentlichende Stelle wird die zuständige Behörde bzw. Organisationseinheit verstanden verstanden. Diese Angabe wird auch für den Filter 'nach Bereitsteller' genutzt. Der 'ansprechpartner' soll dagegen von den Datennutzern bei Fragen und Kommentaren kontaktiert werden, daher können auch Funktionstitel und Funktions-Emailadressen angegeben werden.</span>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">Name</label>
+              <div class="controls">
+                  {{view Ember.TextField valueBinding="contact.name"}}
+                <span class="help-inline">Name der Person oder Funktion</span>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">Website</label>
+              <div class="controls">
+                  {{view Ember.TextField valueBinding="contact.url"}}
+                <span class="help-inline">Webseite des Kontakts</span>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">eMail</label>
+              <div class="controls">
+                  {{view Ember.TextField valueBinding="contact.email"}}
+                <span class="help-inline">Email-Adresse des Kontakts, wird auch für Benachrichtigungen genutzt</span>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">Adresse</label>
+              <div class="controls">
+                  {{view Ember.TextArea valueBinding="contact.address" rows="3"}}
+                <span class="help-inline">Postalische Adresse des Kontakts.</span>
+              </div>
+            </div>
+            <hr>
+          {{/each}}
+          <h4>Kalender-Daten</h4>
+          {{#each date in view.data.extras.dates}}
+            <div class="control-group">
+              <label class="control-label">Rolle</label>
+              <div class="controls">
+                {{view Ember.Select contentBinding="view.date.roleContent"
+                     valueBinding="date.role"}}
+                <span class="help-inline">Rolle, die dieses Datum für den Datensatz spielt</span>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">Datum</label>
+              <div class="controls">
+                {{view Ember.TextField valueBinding="date.date"}}
+                <span class="help-inline">Das Kalender-Datum</span>
+              </div>
+            </div>
+            <hr>
+          {{/each}}
+          <h4>Nutzungsbestimmungen</h4>
+          <div class="control-group">
+            <label class="control-label">Lizenz-ID</label>
+            <div class="controls">
+              {{view Ember.Select contentBinding="view.licenseIdContent"
+                   valueBinding="view.data.extras.terms_of_use.license_id"}}
+              <span class="help-inline">Lizenz aus einer festen Liste, s.u. bzw. <a href='https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json'>Liste</a></span>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">Freitext</label>
+            <div class="controls">
+              {{view Ember.TextField valueBinding="view.data.extras.terms_of_use.other"}}
+              <span class="help-inline">Freitext, der die Nutzungsbestimmungen festlegt, falls diese keiner allgemein bekannten Lizenz entsprechen.</span>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">URL</label>
+            <div class="controls">
+              {{view Ember.TextField valueBinding="view.data.extras.terms_of_use.license_url"}}
+              <span class="help-inline">URL, auf der die Lizenz des Datensatzes, Dokuments oder der App beschrieben und erklärt ist.</span>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">Nutzungsfreiheit</label>
+            <div class="controls">
+              {{view Ember.Checkbox checkedBinding="view.data.extras.terms_of_use.is_free_to_use"}}
+              <span class="help-inline">Die Information, ob der Datensatz/das Dokument/die App kostenfrei und zweckoffen ist (muss gesetzt werden, wenn Freitext bei der Lizenzangabe genutzt wird).</span>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </script>
+    
+    <script type="text/x-handlebars" data-template-name="metadata-json">
+    <h2>JSON</h2>
+    <div class="well">
+      <button {{action generateJson target="view"}} class="btn btn-primary btn-large btn-block"><i class="icon-download icon-white"></i> Generiere JSON</button>
+      <button {{action parseJson target="view"}} class="btn btn-large btn-block"><i class="icon-upload"></i> JSON in Formular umwandeln</button>
+      <button {{action parseJson target="view"}} class="btn btn-large btn-block"><i class="icon-hdd"></i> Herunterladen</button>
+      {{view Ember.TextArea valueBinding="view.jsonString" rows="50" class="span-12"}}
     </div>
+      
+    </script>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Metadataen-toaster maintained by <a href="https://github.com/moers">moers</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="components/jquery/jquery.js"></script>
+    <script src="components/handlebars/handlebars.js"></script>
+    <script src="components/ember/ember.js"></script>
+    <script src="components/moment/min/moment.min.js"></script>
+    <script src="components/moment/min/langs.min.js"></script>
+    
+    <script src="components/bootstrap/docs/assets/js/google-code-prettify/prettify.js"></script>
+    <link rel="stylesheet" href="components/bootstrap/docs/assets/js/google-code-prettify/prettify.css" type="text/css">
+    
+    <script src="js/app.js"></script>
     
 
   </body>

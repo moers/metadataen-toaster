@@ -1,0 +1,17 @@
+{
+  "name": "formular_json",
+  "version": "0.0.0-pre",
+  "main": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {
+    "bootstrap": "~2.3.1",
+    "moment": "~2.0.0",
+    "ember": "~1.0.0-rc.1",
+    "ember-data": "latest",
+    "ember-localstorage-adapter": "latest"
+  }
+}
