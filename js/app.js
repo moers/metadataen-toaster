@@ -26,5 +26,3 @@ App.Metadata = Ember.Object.extend({
 })
 
 var metadata = App.Metadata.create();
-
-console.log(metadata);
