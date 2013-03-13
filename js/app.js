@@ -1,3 +1,7 @@
+Ember.TextField.reopen({
+  attributeBindings: ['required']
+})
+
 window.App = Ember.Application.create();
 
 App.Metadata = Ember.Object.extend({

@@ -118,21 +118,21 @@
           <div class="control-group">
             <label class="control-label">Name</label>
             <div class="controls">
-              {{view Ember.TextField valueBinding="view.data.name"}}
+              {{view Ember.TextField valueBinding="view.data.name" required="required"}}
               <span class="help-inline">Ein für Menschen lesbarer Bezeichner des Datensatzes, des Dokuments oder der Apps, der für eine Identifizierung genutzt werden kann (einfache ASCII-Präsentation des Titels, auch für die Pretty-Link-URL, Linked Data URIs)</span>
             </div>
           </div>
           <div class="control-group">
             <label class="control-label">Titel</label>
             <div class="controls">
-              {{view Ember.TextField valueBinding="view.data.title"}}
+              {{view Ember.TextField valueBinding="view.data.title" required="required"}}
               <span class="help-inline">Beschreibung und weitere Informationen zum Datensatz, zum Dokument oder zur App, wird auf der Detailseite dargestellt und kann mehrere Absätze umfassen</span>
             </div>
           </div>
           <div class="control-group">
             <label class="control-label">Beschreibung</label>
             <div class="controls">
-            {{view Ember.TextField valueBinding="view.data.notes"}}
+            {{view Ember.TextField valueBinding="view.data.notes" required="required"}}
             <span class="help-inline">Beschreibung und weitere Informationen zum Datensatz, zum Dokument oder zur App, wird auf der Detailseite dargestellt und kann mehrere Absätze umfassen.</span>
             </div>
           </div>
@@ -143,6 +143,7 @@
                    contentBinding="view.groupsContent"
                    valueBinding="view.data.groups"
                    multiple="multiple"
+                   required="required"
             }}
               <span class="help-inline">Kategorien für die Datensätze und Dokumente. Die Kategorien sind statisch und werden vom Portalbetreiber langfristig gepflegt, s.u. bzw. <a href='https://github.com/fraunhoferfokus/ogd-metadata/blob/master/kategorien/deutschland.json'>Liste</a></span>
             </div>
@@ -184,14 +185,14 @@
             <div class="control-group">
               <label class="control-label">URL</label>
               <div class="controls">
-                {{view Ember.TextField valueBinding="resource.url"}}
+                {{view Ember.TextField valueBinding="resource.url" required="required"}}
                 <span class="help-inline">Verweis auf die eigentliche Datendatei, das Dokument oder die Anwendung.</span>
               </div>
             </div>
             <div class="control-group">
               <label class="control-label">Format</label>
               <div class="controls">
-                {{view Ember.TextField valueBinding="resource.format"}}
+                {{view Ember.TextField valueBinding="resource.format" required="required"}}
                 <span class="help-inline">Typ der Ressource (MIME Types).</span>
               </div>
             </div>
@@ -219,7 +220,8 @@
               <label class="control-label">Rolle</label>
               <div class="controls">
                 {{view Ember.Select contentBinding="view.roleContent"
-                     valueBinding="contact.role"}}
+                       valueBinding="contact.role"
+                       required="required"}}
                 <span class="help-inline">Rolle, die dieser Kontakt für das Metadatum innehat. Unter Veröffentlichende Stelle wird die zuständige Behörde bzw. Organisationseinheit verstanden verstanden. Diese Angabe wird auch für den Filter 'nach Bereitsteller' genutzt. Der 'ansprechpartner' soll dagegen von den Datennutzern bei Fragen und Kommentaren kontaktiert werden, daher können auch Funktionstitel und Funktions-Emailadressen angegeben werden.</span>
               </div>
             </div>
