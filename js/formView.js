@@ -45,6 +45,3 @@ App.TagView = Ember.CollectionView.extend({
     console.log(this.content);
   }.observes('content')
 });
-
-App.formView = App.FormView.create();
-App.formView.appendTo("#form");

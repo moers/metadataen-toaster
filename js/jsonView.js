@@ -23,5 +23,3 @@ App.JsonView = Ember.View.extend({
     window.location = text;
   }
 });
-App.jsonView = App.JsonView.create();
-App.jsonView.appendTo('#json');

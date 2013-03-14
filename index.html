@@ -64,47 +64,47 @@
   </head>
 
   <body>
+    <script type="text/x-handlebars">
+      <div class="container-narrow">
 
-    <div class="container-narrow">
-
-      <div class="masthead">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">Home</a></li>
-          <!--<li><a href="#form">Formular</a></li>
-          <li><a href="#json">JSON</a></li>-->
-        </ul>
-        <h3 class="muted">Metadaten-Toaster</h3>
-      </div>
-
-      <hr>
-
-      <div class="jumbotron">
-        <h1>Metadaten-Toaster!</h1>
-        <p class="lead">Metadaten für das Portal <a href="https://www.govdata.de/">Govdata</a> von Hand zu erstellen ist zu kompliziert? Kein Problem, toaste sie einfach.</p>
-        <!--<a class="btn btn-large btn-success" href="#">Sign up today</a>-->
-      </div>
-
-      <hr>
-
-      <div class="row-fluid marketing">
-        <div class="span12" id="form">
-          
+        <div class="masthead">
+          <ul class="nav nav-pills pull-right">
+            <li class="active"><a href="#">Home</a></li>
+            <!--<li><a href="#form">Formular</a></li>
+            <li><a href="#json">JSON</a></li>-->
+          </ul>
+          <h3 class="muted">Metadaten-Toaster</h3>
         </div>
-      </div>
-      <div class="row-fluid marketing">
-        <div class="span12" id="json">
-          
+
+        <hr>
+
+        <div class="jumbotron">
+          <h1>Metadaten-Toaster!</h1>
+          <p class="lead">Metadaten für das Portal <a href="https://www.govdata.de/">Govdata</a> von Hand zu erstellen ist zu kompliziert? Kein Problem, toaste sie einfach.</p>
+          <!--<a class="btn btn-large btn-success" href="#">Sign up today</a>-->
         </div>
-      </div>
 
-      <hr>
+        <hr>
 
-      <div class="footer">
-        <p>&copy; Moers 2013</p>
-      </div>
+        <div class="row-fluid marketing">
+          <div class="span12">
+          {{view App.FormView}}
+          </div>
+        </div>
+        <div class="row-fluid marketing">
+          <div class="span12">
+          {{view App.JsonView}}
+          </div>
+        </div>
 
-    </div> <!-- /container -->
-    
+        <hr>
+
+        <div class="footer">
+          <p>&copy; Moers 2013</p>
+        </div>
+
+      </div> <!-- /container -->
+    </script>
     
     <!-- Le Templates 
     ================================================== -->
