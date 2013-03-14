@@ -14,8 +14,10 @@ App.Metadata = Ember.Object.extend({
   tagsString: function(key, value) {
     // getter
     if (arguments.length === 1) {
-      return this.get("tags").join(", ")
-      // setter
+      var tags = this.get("tags")
+      if(typeof tags !== "object") tags = [];
+      return tags.join(", ")
+    // setter
     } else {
       var tags = value.replace(/\s+/g, '').split(",");
       this.set("tags", tags);
